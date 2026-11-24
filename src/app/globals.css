@@ -1,0 +1,268 @@
+@import "tailwindcss";
+@config "../../tailwind.config.ts";
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.5rem;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+
+  .dark {
+    --background: 38 35% 6%;
+    --foreground: 42 40% 96%;
+    --card: 38 30% 8%;
+    --card-foreground: 42 40% 96%;
+    --popover: 38 30% 8%;
+    --popover-foreground: 42 40% 96%;
+    --primary: 43 62% 53%;
+    --primary-foreground: 38 40% 8%;
+    --secondary: 38 25% 14%;
+    --secondary-foreground: 42 40% 96%;
+    --muted: 38 25% 14%;
+    --muted-foreground: 40 18% 65%;
+    --accent: 38 28% 11%;
+    --accent-foreground: 42 40% 96%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 38 22% 18%;
+    --input: 38 22% 18%;
+    --ring: 43 62% 53%;
+    --chart-1: 43 62% 53%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #100c06;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #8a6d2b;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #d4a537;
+}
+
+/*
+ * react-calendar-heatmap styles
+ *
+ * All of the styles in this file are optional and configurable!
+ * The github and gitlab color scales are provided for reference.
+ */
+
+.react-calendar-heatmap text {
+  font-size: 10px;
+  fill: #aaa;
+}
+
+.react-calendar-heatmap .react-calendar-heatmap-small-text {
+  font-size: 5px;
+}
+
+.react-calendar-heatmap rect:hover {
+  stroke: #555;
+  stroke-width: 1px;
+}
+
+/* ---------- Home page motion + helpers ---------- */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Airing Soon: a deliberately quiet drag bar (thin, faint, no labels). */
+.quiet-bar {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 1rem;
+  background: transparent;
+  cursor: pointer;
+  touch-action: none;
+  opacity: 0.55;
+  transition: opacity 0.2s;
+}
+.quiet-bar:hover,
+.quiet-bar:focus-visible {
+  opacity: 1;
+}
+.quiet-bar::-webkit-slider-runnable-track {
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(
+    to right,
+    rgba(245, 192, 74, 0.55) var(--fill, 0%),
+    rgba(255, 255, 255, 0.1) var(--fill, 0%)
+  );
+}
+.quiet-bar::-moz-range-track {
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+}
+.quiet-bar::-moz-range-progress {
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(245, 192, 74, 0.55);
+}
+.quiet-bar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  margin-top: -3.5px;
+  height: 10px;
+  width: 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 0;
+}
+.quiet-bar::-moz-range-thumb {
+  height: 10px;
+  width: 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 0;
+}
+.quiet-bar:focus-visible {
+  outline: 1px solid rgba(245, 192, 74, 0.7);
+  outline-offset: 3px;
+  border-radius: 999px;
+}
+
+/* ---- Video player controls ---- */
+/* Our custom 10s buttons use stroke icons; ArtPlayer's default `fill: #fff`
+   turned them into solid dots. */
+.art-video-player .art-control-rewind-10 svg,
+.art-video-player .art-control-forward-10 svg {
+  fill: none !important;
+  stroke: currentColor !important;
+  width: 20px;
+  height: 20px;
+}
+.art-video-player .art-control-rewind-10,
+.art-video-player .art-control-forward-10 {
+  min-width: 0;
+}
+
+/* Floating Skip Intro / Skip Outro pill */
+.art-video-player .gladi-skip-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #1a1206;
+  background: linear-gradient(90deg, #f3d77a, #d4a537);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  white-space: nowrap;
+}
+.art-video-player .gladi-skip-pill svg {
+  fill: none !important;
+  stroke: currentColor !important;
+}
+
+/* Keep the right-hand controls (settings, fullscreen) always on screen. */
+.art-video-player .art-controls-right {
+  flex-shrink: 0;
+}
+.art-video-player .art-controls-left {
+  min-width: 0;
+  overflow: hidden;
+}
+@media (max-width: 640px) {
+  .art-video-player .art-control-screenshot,
+  .art-video-player .art-control-airplay,
+  .art-video-player .art-control-pip,
+  .art-video-player .art-control-fullscreenWeb {
+    display: none !important;
+  }
+  .art-video-player .art-control-volume .art-volume-panel {
+    display: none !important;
+  }
+  .art-video-player .gladi-skip-pill {
+    padding: 6px 11px;
+    font-size: 12px;
+  }
+}
+
+/* Touch-friendly control bar: every button (including fullscreen) is a
+   comfortable tap target and stays inside the player. */
+.art-video-player .art-controls .art-control {
+  min-width: 40px;
+  min-height: 40px;
+}
+.art-video-player .art-controls-right {
+  gap: 0;
+}
+.art-video-player .art-control-fullscreen {
+  min-width: 44px;
+  margin-right: 2px;
+}
+@media (max-width: 640px) {
+  .art-video-player .art-control-time {
+    font-size: 12px;
+    padding: 0 4px;
+  }
+  .art-video-player .art-controls .art-control {
+    min-width: 36px;
+    padding: 0 2px;
+  }
+}

@@ -1,0 +1,15 @@
+export const ROUTES = {
+  HOME: "/",
+  ANIME_DETAILS: "/anime",
+  WATCH: "/anime/watch",
+  SEARCH: "/search",
+  POPULAR: "/popular",
+  TOP: "/top",
+  TRENDING: "/trending",
+  RECENT: "/recent",
+  UPCOMING: "/upcoming",
+  SCHEDULE: "/schedule",
+  DMCA: "/dmca",
+  PRIVACY: "/privacy",
+  TERMS: "/terms",
+};
